@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width" />
+
+	<title></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+	
+	<link rel="shortcut icon" th:href="@{/bootstrap/img/icon-user.png}"/>
+</head>
+
+	<body>	
+		
+		<div class="divCenter">
+			<div class="container-fluid">
+			
+			<img th:src="@{/bootstrap/img/message-icon.png}" height="50" width="50">
+		
+				<form class="form-horizontal" th:action="@{/login}" method="POST">
+				
+						<div th:if="${#bools.isTrue(param.error)}">
+							<div class="messagem">
+								<b>Login ou senha não conferem</b>
+							</div>
+						</div>	
+					
+					<input type="text" class="form-control entre-botoes" name="username" placeholder="Login" autofocus="autofocus"/>
+					<input type="password" class="form-control entre-botoes" name="password" placeholder="Senha"/>
+						
+					<button type="submit" class="btn btn-info btn-sm btn-block entre-botoes">Logar</button>
+					
+				</form>
+			</div>
+		</div>
+		
+	</body>
+
+	<script th:src="@{/bootstrap/js/jquery.min.js}"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+</html>

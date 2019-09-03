@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width" />
+	
+	<title>Message Page</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/css/webchat.css}" >
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+	
+	<link rel="shortcut icon" th:href="@{/bootstrap/img/icon-user.png}"/>
+</head>
+
+<body>	
+	
+	<div class="margin-top col-sm-12">
+		<div class="container-fluid">  
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					
+					<h1 class="panel-title">Helpsystem Message</h1>
+					<div style="float: right; margin: -20px 0 0 0;">
+						<a th:href="@{/logout}" onclick="disconnect();">
+							<span class="glyphicon glyphicon-log-in"></span>
+							<span> Sair</span>
+						</a>
+					</div>
+				</div>
+	
+					<div class="panel-body">
+					
+						<!-- Painel Usuários Logados -->
+						
+						<div class="col-sm-4">
+							<ul class="list-group">
+							
+								<li class="list-group-item">
+									<span id="username" th:text="${#authentication.principal.username}"></span>
+								</li>	
+								
+								<div id="lista"></div>
+													
+							</ul>	
+						</div>
+						
+						<!-- Painel Usuários Logados -->
+	
+						<!-- Painel Mensagens -->
+						
+						<div class="col-sm-8">
+							<div id="textMensages"></div>
+						</div>
+						
+						<!-- <button onclick="enviandoStatus();">testando</button> -->
+
+						<div id="teste"></div>
+
+						<!-- Painel Mensagens -->
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+	<script th:src="@{/bootstrap/js/jquery.min.js}"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/bootstrap/js/webchat.js}"></script>
+	
+	<script th:src="@{/js/sockjs.min.js}"></script>
+	<script th:src="@{/js/stomp.min.js}"></script>
+	<script th:src="@{/js/websocket.js}"></script>
+	
+	<script th:src="@{/js/message.js}"></script>
+	<script th:src="@{/js/notification.js}"></script>
+
+</html>
